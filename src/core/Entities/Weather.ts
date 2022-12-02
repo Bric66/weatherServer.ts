@@ -2,10 +2,7 @@ export type WeatherProperties = {
     city: string,
     latitude: number,
     longitude: number,
-    temperatureInCelcius: number,
-    pressureInHpa: number,
-    humidityInPercents: number,
-    windSpeedInKmH: number,
+    temperatureInCelsius: number,
     created: Date,
 }
 
@@ -20,22 +17,14 @@ export class Weather {
         city: string,
         latitude: number,
         longitude: number,
-        temperatureInCelcius: number,
-        pressureInHpa: number,
-        humidityInPercents: number,
-        windSpeedInKmH: number,
+        temperatureInCelsius: number,
     }) {
         return new Weather({
             city: props.city,
             latitude: props.latitude,
             longitude: props.longitude,
-            temperatureInCelcius: props.temperatureInCelcius,
-            pressureInHpa: props.pressureInHpa,
-            humidityInPercents: props.humidityInPercents,
-            windSpeedInKmH: props.windSpeedInKmH,
+            temperatureInCelsius: props.temperatureInCelsius,
             created: new Date(),
         })
     }
-
-
 }

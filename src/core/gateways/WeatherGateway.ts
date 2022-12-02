@@ -1,5 +1,12 @@
-import {Weather} from "../Entities/Weather";
+export type WeatherResponse = {
+    city : string;
+    latitude : number;
+    longitude : number;
+    temperatureInCelsius : number;
+}
 
 export interface WeatherGateway {
-    getWeatherOfCity (city: string) : Promise<Weather>
+    getByCity(city: string): Promise<WeatherResponse>;
+
+    getByCoordinates(latitude: number, longitude: number): Promise<WeatherResponse>;
 }
