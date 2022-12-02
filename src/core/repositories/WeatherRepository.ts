@@ -1,7 +1,9 @@
 import {Weather} from "../Entities/Weather";
 
 export interface WeatherRepository {
-    searchWeatherOfCity (input: string): Promise<Weather>;
+    getByCity(input: string): Promise<Weather>;
 
-    save (weather: Weather): Weather;
+    getByCoordinates(latitude: number, longitude: number): Promise<Weather>
+
+    save(weather: Weather): Promise<Weather>;
 }

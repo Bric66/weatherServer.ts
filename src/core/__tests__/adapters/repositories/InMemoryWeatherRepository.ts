@@ -8,14 +8,19 @@ export class InMemoryWeatherRepository implements WeatherRepository {
         private readonly db: Map<string, Weather>) {
     }
 
-    searchWeatherOfCity(input: string): Promise<Weather> {
-        const weather = this.db.get(input);
-        return Promise.resolve(weather)
+    async getByCity(city: string): Promise<Weather> {
+        return (this.db.get(city))
     }
 
-    save(weather: Weather): Weather {
+    async save(weather: Weather): Promise<Weather> {
         this.db.set(weather.props.city, weather);
         return weather;
+    }
+
+    getByCoordinates(latitude: number, longitude: number): Promise<Weather> {
+        const weathers = Array.from(this.db.values());
+        const weatherOfCoordinates = weathers.find((element) => element.props.latitude === latitude && element.props.longitude ===longitude);
+        return Promise.resolve(weatherOfCoordinates);
     }
 
 }
